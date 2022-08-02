@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  def test_level(num)
-    Test.where(level: num)
+  def tests(level)
+    Test.where(id: UserTest.where(user_id: self.id).pluck(:test_id), level: level)
   end
 end
