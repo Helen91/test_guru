@@ -1,6 +1,5 @@
 class Test < ApplicationRecord
   def self.for_category(name)
-    categories = Category.where(title: name)
-    tests = Test.find_by(category_id: categories)
+    Test.joins("INNER JOIN categories ON tests.category_id = categories.id AND categories.title = '#{name}'").order(id: "DESC")
    end
 end
