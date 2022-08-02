@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   def tests(level)
-    Test.where(id: UserTest.where(user_id: self.id).pluck(:test_id), level: level)
+    Test.joins("INNER JOIN user_tests ut ON ut.user_id = #{id} AND ut.test_id = tests.id")
+        .where(level: level)
   end
 end
