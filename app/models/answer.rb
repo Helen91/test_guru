@@ -9,8 +9,8 @@ class Answer < ApplicationRecord
   private
   
   def max_count
-    if self.class.where(question_id: question_id).size >= 4
-      errors.add(:max_count) 
+    if question.answers.size >= 4
+      errors.add(:max_count,"4 answers max") 
     end
   end
 end
