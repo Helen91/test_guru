@@ -1,0 +1,16 @@
+
+<h2><%= @test.title %></h2>
+<ul>
+  <% @test.questions.each do |question| %>
+    <li>
+     <p><%= question.body %><p>
+     <p> <%= link_to "show", question_path(question) %> <p>
+     <p> <%= link_to "edit", edit_question_path(question) %> <p>
+     <p> <%= link_to "delete", question_path(question), method: :delete, data: { confirm: "Удалить?" }  %> <p>
+
+    </li>
+  <% end %>
+</ul>
+
+<p> <%= link_to "Create new question", new_test_question_path %> <p>
+

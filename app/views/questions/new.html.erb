@@ -1,12 +1,6 @@
-<h1>New question</h1>
+<h1><%= question_header("new", @test) %></h1>
 
 <%= form_with(model: [:test, @question]) do |form| %>
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= render "form", form: form %>
 <% end %>
+<p> <%= link_to "All questions", test_questions_path(@test) %> <p>
