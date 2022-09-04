@@ -1,4 +1,7 @@
-<div>
+<h1><%= question_header(@question) %></h1>
+
+<%= form_with(model: [@test, @question]) do |form| %>
+  <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
   </div>
@@ -6,4 +9,5 @@
   <div>
     <%= form.submit %>
   </div>
-  
+<% end %>
+<p> <%= link_to "All questions", test_questions_path(@question.test) %> <p>
