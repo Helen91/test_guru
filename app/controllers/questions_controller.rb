@@ -1,15 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :set_test, only: %i[index create new]
-  before_action :set_question, only: %i[show destroy]
+  before_action :set_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    render plain: @test.questions.map(&:id)
   end
 
   def show
-    render plain: @question.body
   end
 
   def new
@@ -21,16 +19,24 @@ class QuestionsController < ApplicationController
     if @question.save
       render plain: "question is saved #{@question.id}"
     else
-      render plain: "question not saved"
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(body: params[:question][:body])
+      redirect_to @question
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    if @question.destroy
-      render plain: "question delete #{@question.id}"
-    else
-      render plain: "question not delete"
-    end
+    @question.destroy
+    redirect_to test_questions_path(@question.test)
   end
 
   private

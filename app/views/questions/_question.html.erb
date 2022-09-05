@@ -1,0 +1,7 @@
+<li>
+     <p><%= question.body %><p>
+     <p> <%= link_to "show", question_path(question) %> <p>
+     <p> <%= link_to "edit", edit_question_path(question) %> <p>
+     <p> <%= link_to "delete", question_path(question), method: :delete, data: { confirm: "Удалить?" }  %> <p>
+
+    </li>
