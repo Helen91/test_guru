@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_09_07_114917) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "question_id"
-    t.integer "correct_questions"
+    t.integer "correct_questions", default: 0
     t.index ["question_id"], name: "index_user_tests_on_question_id"
     t.index ["test_id"], name: "index_user_tests_on_test_id"
     t.index ["user_id"], name: "index_user_tests_on_user_id"
