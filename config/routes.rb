@@ -4,8 +4,10 @@ Rails.application.routes.draw do
       get :result
     end
   end
-  resources :tests, shallow: true do
-    resources :questions
+  resources :tests, only: %i[index show], shallow: true do
+    resources :questions, except: :index do
+      resources :answers, except: :index
+    end
     member do
       post :start
     end

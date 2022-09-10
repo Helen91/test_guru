@@ -1,11 +1,8 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: %i[index create new]
+  before_action :set_test, only: %i[create new]
   before_action :set_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
-
-  def index
-  end
 
   def show
   end
@@ -15,9 +12,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @test.questions.new(body: params[:question][:body])
+    @question = @test.questions.new(question_params)
     if @question.save
-      render plain: "question is saved #{@question.id}"
+      redirect_to @question
     else
       render :new
     end
@@ -27,16 +24,16 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update(body: params[:question][:body])
+    if @question.update(question_params)
       redirect_to @question
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test)
+    redirect_to @question.test
   end
 
   private
@@ -51,5 +48,9 @@ class QuestionsController < ApplicationController
 
   def rescue_with_test_not_found
     render plain: "not found"
+  end
+
+  def question_params
+    params.require(:question).permit(:body)
   end
 end
