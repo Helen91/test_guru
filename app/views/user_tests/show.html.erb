@@ -1,6 +1,7 @@
 <h1><%= @user_test.test.title %></h1>
 
 <b><%= @user_test.current_question.body %></b>
+<p><%= "#{current_question_number} of #{@user_test.test.questions.count}" %></p>
 
 <%= form_with url: user_test_path(@user_test), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @user_test.current_question.answers, :id, :body, include_hidden: false do |b| %>

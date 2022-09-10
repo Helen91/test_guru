@@ -9,7 +9,12 @@ class UserTestsController < ApplicationController
 
   def update
     @user_test.accept!(params[:answer_ids])
-    render :show
+
+    if @user_test.completed?
+      redirect_to result_user_test_path(@user_test)
+    else
+      render :show
+    end
   end
 
   private
