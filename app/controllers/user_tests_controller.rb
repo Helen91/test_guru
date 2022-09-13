@@ -1,6 +1,10 @@
 class UserTestsController < ApplicationController
   before_action :set_user_test, only: %i[show result update]
 
+  def index
+    @user_tests = UserTest.all
+  end
+
   def show
   end
 
@@ -18,7 +22,7 @@ class UserTestsController < ApplicationController
   end
 
   private
-  
+
   def set_user_test
     @user_test = UserTest.find(params[:id])
   end

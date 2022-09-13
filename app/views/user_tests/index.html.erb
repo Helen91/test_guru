@@ -11,18 +11,6 @@
   </thead>
 
   <tbody>
-    <% @user_tests.each do |user_test| %>
-      <tr>
-        <td><%= user_test.test.title %><td>
-        <td><%= user_test.user.id %><td>
-        <td><%= link_to 'Show', user_test %></td>
-        <td><%= link_to 'Edit', edit_user_test_path(user_test) %></td>
-        <td><%= link_to 'Destroy', user_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+     <%= render @user_tests %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User Test', new_user_test_path %>

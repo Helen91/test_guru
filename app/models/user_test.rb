@@ -6,16 +6,28 @@ class UserTest < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
+  PART_TEST_COMPLIT = 85
+
   def completed?
     current_question.nil?
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
 
     save!
+  end
+
+  def percent_of_completion
+    (correct_questions.to_f / test.questions.count) * 100
+  end
+
+  def current_question_number
+    test.questions.order(id: :asc).find_index(current_question) + 1
+  end
+
+  def success?
+    percent_of_completion >= PART_TEST_COMPLIT
   end
 
   private

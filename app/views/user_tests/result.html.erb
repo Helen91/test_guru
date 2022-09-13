@@ -1,14 +1,14 @@
 <h1><%= "Test #{@user_test.test.title} completed" %></h1>
 
-<% if percent_of_completion >= 85 %>
+<% if @user_test.success? %>
   <p>
     Success
-    <b style="color:green;"><%= percent_of_completion %></b>
+    <b style="color:green;"><%= @user_test.percent_of_completion %></b>
   </p>
 <% else %>
   <p>
     Fail
-    <b style="color:red;"><%= percent_of_completion %></b>
+    <b style="color:red;"><%=@user_test.percent_of_completion %></b>
   </p>
 <% end %>
 

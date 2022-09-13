@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :user_tests, only: %i[show update] do
+  resources :user_tests, only: %i[show update index] do
     member do
       get :result
     end
