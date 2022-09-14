@@ -1,0 +1,15 @@
+<h1><%= "Test #{@user_test.test.title} completed" %></h1>
+
+<% if @user_test.success? %>
+  <p>
+    Success
+    <b style="color:green;"><%= @user_test.percent_of_completion %></b>
+  </p>
+<% else %>
+  <p>
+    Fail
+    <b style="color:red;"><%=@user_test.percent_of_completion %></b>
+  </p>
+<% end %>
+
+<%= link_to "All tests", tests_path %>

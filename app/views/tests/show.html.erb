@@ -1,0 +1,5 @@
+<h2><%= @test.title %></h2>
+  <%= render @test.questions %>
+<p> <%= link_to "Create new question", new_test_question_path(@test) %> <p>
+
+<%= link_to 'Back', tests_path %>
