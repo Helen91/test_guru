@@ -1,4 +1,6 @@
 class UserTestsController < ApplicationController
+  
+  before_action :authenticate_user!
   before_action :set_user_test, only: %i[show result update]
 
   def index
