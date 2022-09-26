@@ -1,21 +1,17 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :current_user
+  protected
 
-  private
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+  end
 
-  def authenticate_user!
-    unless current_user
-      session[:redirect_url] = request.path
-      redirect_to login_path
+  def after_sign_in_path_for(user)
+    if user.is_a?(Admin)
+     admin_tests_path
+    else
+      root_url
     end
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def login_in?
-    current_user.present?
   end
 end
