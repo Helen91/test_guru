@@ -24,4 +24,9 @@ class User < ApplicationRecord
   def user_test(test)
     user_tests.order(id: :desc).find_by(test_id: test.id)
   end
+ 
+  def admin?
+    is_a?(Admin)
+  end
+
 end
