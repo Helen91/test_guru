@@ -1,0 +1,15 @@
+ru:
+  activerecord:
+    models:
+      test: "Tecт"
+      category: "Категория"
+
+    attributes:
+      test:
+        title: "Название"
+        category: "Категория"
+
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        required: "должна быть указана"

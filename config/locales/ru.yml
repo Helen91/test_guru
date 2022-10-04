@@ -1,0 +1,49 @@
+ru:
+  hello: "Привет мир"
+  title: "Название"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+  shared:
+    errors:
+      header:
+        few: "Обноружено %{count} ошибки "
+        many: "Обноружено %{count} ошибок "
+        one:  "Обноружено %{count} ошибка"
+        other: "Обноружено %{count} ошибки"
+        
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+    test:
+      button: "Начать"
+
+  user_tests:
+    result:
+      header: "Tecт %{title} успешно завершен"
+
+  admin:
+    tests:
+      create:
+        success: "Тест создан"
+      index:
+        header: "Доступыне Тесты"
+
+    tests_mailer:
+      completed_test:
+        subject: "Вы успешно завершили тест на TestGuru!"
+
+  layouts:
+    application:
+      welcome: "Добро пожаловать, %{first_name} Гуру"
+
