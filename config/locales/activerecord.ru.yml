@@ -3,11 +3,22 @@ ru:
     models:
       test: "Tecт"
       category: "Категория"
-
+      question: "Вопрос"
+      answer: "Ответ"
+    
     attributes:
       test:
         title: "Название"
         category: "Категория"
+        level: "Уровень"
+
+      user:
+        first_name: "Имя"  
+        last_name: "Фамилия"
+
+      answer:
+        body: "Содержание"
+        correct: "Правильный"
 
     errors:
       messages:

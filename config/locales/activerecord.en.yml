@@ -8,6 +8,9 @@ en:
       test:
         title: "Name"
         category: "Category"
+      user:
+        email: "email"
+        password: "password"
 
     errors:
       messages:
