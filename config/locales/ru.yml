@@ -20,6 +20,8 @@ ru:
       test:
         title: "Название"
         category_id: "Категория"
+    select:
+      prompt: "Выберете категорию"
 
   shared:
     errors:
