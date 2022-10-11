@@ -1,0 +1,26 @@
+ru:
+  activerecord:
+    models:
+      test: "Tecт"
+      category: "Категория"
+      question: "Вопрос"
+      answer: "Ответ"
+    
+    attributes:
+      test:
+        title: "Название"
+        category: "Категория"
+        level: "Уровень"
+
+      user:
+        first_name: "Имя"  
+        last_name: "Фамилия"
+
+      answer:
+        body: "Содержание"
+        correct: "Правильный"
+
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        required: "должна быть указана"

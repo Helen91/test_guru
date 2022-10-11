@@ -1,0 +1,80 @@
+ru:
+  hello: "Привет мир"
+  title: "Название"
+  level: "Уровень"
+  count: "Счечик"
+  actions: "Действие"
+  show: "Показать"
+  edit: "Редактировать"
+  delete: "Удалить"
+  back: "Назад"
+  questions: "Вопросы"
+
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+    label:
+      test:
+        title: "Название"
+        category_id: "Категория"
+    select:
+      prompt: "Выберете категорию"
+
+  shared:
+    errors:
+      header:
+        few: "Обноружено %{count} ошибки "
+        many: "Обноружено %{count} ошибок "
+        one:  "Обноружено %{count} ошибка"
+        other: "Обноружено %{count} ошибки"
+        
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+    test:
+      button: "Начать"
+
+  user_tests:
+    result:
+      header: "Tecт %{title} успешно завершен"
+    show:
+      next: "cледующий"
+
+
+  admin:
+    tests:
+      create:
+        success: "Тест создан"
+      index:
+        header: "Доступыне Тесты"
+        new_test: "Новый тест"
+      show:
+        create_new_question: "Создать новый вопрос"
+      edit:
+        edit_test: "Редaктировать тест"
+    questions:
+      show:
+        create_new_answer: "Создать новый ответ"
+    answers:
+      new:
+        new_answer: "Новый ответ"
+      edit:
+        edit_answer: "Pедактировать ответ"
+        
+
+    tests_mailer:
+      completed_test:
+        subject: "Вы успешно завершили тест на TestGuru!"
+
+  layouts:
+    application:
+      welcome: "Добро пожаловать, %{first_name} Гуру !"
+      Logout: "Выйти"
+
+
+
+

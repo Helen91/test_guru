@@ -1,4 +1,4 @@
-<h1><%= "Test #{@user_test.test.title} completed" %></h1>
+<h1><%= t(".header", title: @user_test.test.title) %></h1>
 
 <% if @user_test.success? %>
   <p>

@@ -13,8 +13,8 @@
   <body>
     <% if user_signed_in? %>
       <p>
-        <%= "Welcome, #{current_user.first_name} Guru" %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <%= t(".welcome", first_name: current_user.first_name) %><br><br>
+        <%= link_to t(".Logout"), destroy_user_session_path, method: :delete %>
       </p>
     <% end %>
 

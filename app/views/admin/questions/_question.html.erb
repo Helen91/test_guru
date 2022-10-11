@@ -1,6 +1,6 @@
 <li>
   <b><%= question.body %></b><br>
-  <%= link_to "show", admin_question_path(question) %>
-  <%= link_to "edit", edit_admin_question_path(question) %>
-  <%= link_to "delete", admin_question_path(question), method: :delete, data: { confirm: "Delete?" }  %>
+  <%= link_to t("show"), admin_question_path(question) %>
+  <%= link_to t("edit"), edit_admin_question_path(question) %>
+  <%= link_to t("delete"), admin_question_path(question), method: :delete, data: { confirm: "Delete?" }  %>
 </li>

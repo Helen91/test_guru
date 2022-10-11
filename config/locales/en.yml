@@ -31,3 +31,59 @@
 
 en:
   hello: "Hello world"
+  title: "Title"
+  level: "Level"
+  count: "Count"
+  actions: "Actions"
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"
+  back: "Back"
+  questions: "Questions"
+  answer: "Answer"
+
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+  tests:
+    index:
+      header: "Tricke Tests"
+
+  user_tests:
+    result:
+      header: "The %{title} Test was Complited"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  admin:
+    tests:
+      create:
+        success: "Test create"
+      index:
+        header: "Tricke Tests"
+        new_test: "New Test"
+      show:
+        create_new_question: "Create new question"
+      edit:
+        edit_test: "Edit test"
+
+  tests mailer:
+    completed _test:
+      subject: "You just completed the TestGuru test!"   
+
+layouts:
+    application:
+      welcome: "Welcome, %{first_name} TestGuru!"
+      Logout: "Logout"
