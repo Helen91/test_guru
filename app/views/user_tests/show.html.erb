@@ -1,4 +1,9 @@
+
+
 <h1><%= @user_test.test.title %></h1>
+
+<div class="card border-primary">
+  <div class="card-body">
 
 <b><%= @user_test.current_question.body %></b>
 <p><%= "#{@user_test.current_question_number} of #{@user_test.test.questions.count}" %></p>
@@ -6,9 +11,11 @@
 <%= form_with url: user_test_path(@user_test), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @user_test.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
+      <%= b.check_box id: "answer_ids_#{b.object.id}", class: "form-check-input" %>
+      <%= b.label class: "form-check-label" %>
     </p>
   <% end %>
-  <%= form.submit t(".next") %>
+  <%= form.submit t(".next"), class: "btn btn-success"  %>
 <% end %>
+</div>
+</div>

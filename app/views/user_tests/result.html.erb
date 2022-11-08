@@ -1,7 +1,7 @@
 <h1><%= t(".header", title: @user_test.test.title) %></h1>
 
 <% if @user_test.success? %>
-  <p>
+  <div class="form-check">
     Success
     <b style="color:green;"><%= @user_test.percent_of_completion %></b>
   </p>
@@ -12,4 +12,5 @@
   </p>
 <% end %>
 
-<%= link_to "All tests", tests_path %>
+<%= link_to "All tests", tests_path, class: "btn btn-success" %>
+</div>
