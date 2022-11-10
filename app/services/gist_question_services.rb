@@ -1,6 +1,7 @@
 class GistQuestionServices
 
   def initialize(question, client: nil)
+    @question = question
     @test = question.test
     @client = client || GitHubClient.new
   end
@@ -13,7 +14,7 @@ class GistQuestionServices
 
   def gist_params
     {
-      description: 'A question about #{@test.title} from TestGuru',
+      description: "A question about #{@test.title} from TestGuru",
       files: {
         'test-guru-question.txt' => {
           content: gist_content

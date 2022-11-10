@@ -1,16 +1,16 @@
 class GitHubClient
   
   ROOT_ENDPOINT = 'https://api.github.com'
-  ACCESS_TOKEN =   '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'
+  ACCESS_TOKEN = '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'
 
   def initialize
     @http_client = setup_http_client
   end
 
   def create_gist(params)
-    @http_client.post ('gists') do |request|
-      request.headers['Authorization'] = 'token #{ACCESS_TOKEN)'
-      request.headers['Content-Type'] = application/json
+    @http_client.post('gists') do |request|
+      request.headers['Authorization'] = "token #{ACCESS_TOKEN}"
+      request.headers['Content-Type'] = "application/json"
       request.body = params.to_json
     end
   end
@@ -18,7 +18,7 @@ class GitHubClient
   private
 
   def setup_http_client
-    Faraday. new(url: ROOT_ENDPOINT)
+    Faraday.new(url: ROOT_ENDPOINT)
   end
 
 end

@@ -60,6 +60,10 @@ en:
   user_tests:
     result:
       header: "The %{title} Test was Complited"
+    gist:
+      success: "Gist successfully saved"
+      failure: "An error when gist saved"
+
 
   shared:
     errors:

@@ -43,6 +43,10 @@ ru:
       header: "Tecт %{title} успешно завершен"
     show:
       next: "cледующий"
+    gist:
+      success: "Gist успешно сохранен"
+      failure: "Во время сохранения gist поизошла ошибка"
+
 
 
   admin:

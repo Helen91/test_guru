@@ -1,7 +1,7 @@
 class UserTestsController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :set_user_test, only: %i[show result update]
+  before_action :set_user_test, only: %i[show result update gist]
 
   def index
     @user_tests = UserTest.all
@@ -23,6 +23,18 @@ class UserTestsController < ApplicationController
       render :show
     end
   end
+    
+
+  def gist
+    result = GistQuestionServices.new(@user_test.current_question).call
+    flash_options = if result.success? 
+      { notice: t('.success') }
+      else
+        { alert: t('.failure') }
+      end
+    redirect_to @user_test, flash_options
+  end
+
 
   private
 
