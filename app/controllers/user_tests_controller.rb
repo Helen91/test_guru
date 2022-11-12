@@ -27,8 +27,9 @@ class UserTestsController < ApplicationController
 
   def gist
     result = GistQuestionServices.new(@user_test.current_question).call
-    flash_options = if result.success? 
-      { notice: t('.success') }
+    flash_options = if result.success?
+      url = JSON.parse(result.body)["html_url"]
+        { notice: view_context.link_to(t('.success'), url) }
       else
         { alert: t('.failure') }
       end
