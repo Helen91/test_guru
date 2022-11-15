@@ -1,0 +1,11 @@
+<p><h1><%= t(".title") %></h1></p>
+
+<table class="table table-striped">
+  <tr>
+      <th><%= t(".question") %></th>
+      <th><%= t(".user") %></th>
+      <th><%= t("gist URL") %></th>
+      <th colspan="4">
+       <%= render @gists %>
+    </table> 
+  </tr>

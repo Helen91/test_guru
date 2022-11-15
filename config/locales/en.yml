@@ -82,6 +82,9 @@ en:
         create_new_question: "Create new question"
       edit:
         edit_test: "Edit test"
+    gists:
+      index:
+        title: "All gists"
 
   tests mailer:
     completed _test:
@@ -91,3 +94,7 @@ layouts:
     application:
       welcome: "Welcome, %{first_name} TestGuru!"
       Logout: "Logout"
+
+services:
+  gist_question_services:
+    description: "A question about %{test_title} from TestGuru"

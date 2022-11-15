@@ -68,7 +68,12 @@ ru:
         new_answer: "Новый ответ"
       edit:
         edit_answer: "Pедактировать ответ"
-        
+    gists:
+      index:
+        title: "Все gists"
+        question: "Вопросы"
+        user: "Пользователь"
+
 
     tests_mailer:
       completed_test:
@@ -78,6 +83,10 @@ ru:
     application:
       welcome: "Добро пожаловать, %{first_name} Гуру !"
       Logout: "Выйти"
+
+  services:
+    gist_question_services:
+      description: "Вопрос по %{test_title} от TestGuru"
 
 
 

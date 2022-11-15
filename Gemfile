@@ -24,7 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
 gem 'faraday'
-
+gem 'dotenv-rails', groups: [:development, :test]
+gem "octokit"
 # LOCALIZATION
 gem 'rails-i18n'
 
