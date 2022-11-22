@@ -1,7 +1,7 @@
 class UserTestsController < ApplicationController
   
   before_action :authenticate_user!
-  before_action :set_user_test, only: %i[show result update]
+  before_action :set_user_test, only: %i[show result update gist]
 
   def index
     @user_tests = UserTest.all
@@ -22,6 +22,19 @@ class UserTestsController < ApplicationController
     else
       render :show
     end
+  end
+    
+
+  def gist
+    result = GistQuestionServices.new(@user_test.current_question, client: Octokit::Client.new(access_token: ENV["ACCESS_TOKEN"]))
+    flash_options = if result.success?
+        url = result.url
+        Gist.create(question: @user_test.current_question, user: current_user, url: url )
+        { notice: view_context.link_to(t('.success'), url) }
+      else
+        { alert: t('.failure') }
+      end
+    redirect_to @user_test, flash_options
   end
 
   private
