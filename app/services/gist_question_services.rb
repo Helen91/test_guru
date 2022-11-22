@@ -3,12 +3,17 @@ class GistQuestionServices
   def initialize(question, client: GitHubClient.new)
     @question = question
     @test = question.test
-    @client = client 
+    @client = client
+    @client.create_gist(gist_params)
+    @last_response = @client.last_response
   end
 
-  def call
-    @client.create_gist(gist_params)
-    @client.last_response
+  def success?
+    @last_response.status == 201
+  end
+
+  def url
+    @last_response.data[:html_url]
   end
 
   private

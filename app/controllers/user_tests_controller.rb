@@ -26,9 +26,9 @@ class UserTestsController < ApplicationController
     
 
   def gist
-    result = GistQuestionServices.new(@user_test.current_question, client: Octokit::Client.new(access_token: ENV["ACCESS_TOKEN"])).call
-    flash_options = if result.status == 201
-        url = result.data[:html_url]
+    result = GistQuestionServices.new(@user_test.current_question, client: Octokit::Client.new(access_token: ENV["ACCESS_TOKEN"]))
+    flash_options = if result.success?
+        url = result.url
         Gist.create(question: @user_test.current_question, user: current_user, url: url )
         { notice: view_context.link_to(t('.success'), url) }
       else
@@ -36,7 +36,6 @@ class UserTestsController < ApplicationController
       end
     redirect_to @user_test, flash_options
   end
-
 
   private
 
