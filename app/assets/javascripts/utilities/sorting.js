@@ -28,13 +28,15 @@ function sortRowsByTitle() {
   }
 
   var sortedTable = document.createElement('table')
-
-  sortedTable.classList.add('table')  
+  sortedTable.classList.add('table')
   sortedTable.classList.add('table-striped')
-  sortedTable.appendChild(rows[0])
+
+  var sortedBody = sortedTable.appendChild(document.createElement('tbody'))
+
+  sortedBody.appendChild(rows[0])
 
   for (var i = 0; i < sortedRows.length; i++) {
-    sortedTable.appendChild(sortedRows[i])
+    sortedBody.appendChild(sortedRows[i])
   }
 
   table.parentNode.replaceChild(sortedTable, table)
@@ -56,4 +58,4 @@ function compareRowsDesc(row1, row2) {
   if (testTitle1 < testTitle2) { return 1 } 
   if (testTitle1 > testTitle2) { return -1 } 
   return 0
-}
+} 
