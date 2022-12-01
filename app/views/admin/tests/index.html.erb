@@ -4,10 +4,15 @@
 
 <table class="table table-striped">
   <tr>
-    <th><%= t("title") %></th>
+    <th class="sort-by-title pointer">
+      title
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
     <th><%= t("level") %></th>
     <th><%= t("count") %></th>
-    <th colspan="3"><%= t("actions") %></th>
+    <th colspan="4"><%= t("actions") %></th>
   </tr>
+
   <%= render @tests %>
 </table>
