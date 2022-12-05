@@ -10,6 +10,11 @@
 </p>
 <p><%= "#{@user_test.current_question_number} of #{@user_test.test.questions.count}" %></p>
 
+<%=
+  content_tag :progress, "", value: 0, max: 100, data: {
+    current: @user_test.current_question_number, count: @user_test.test.questions.count
+  }
+%>
 
 <%= form_with url: user_test_path(@user_test), local: true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @user_test.current_question.answers, :id, :body, include_hidden: false do |b| %>

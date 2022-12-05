@@ -82,6 +82,8 @@ en:
         create_new_question: "Create new question"
       edit:
         edit_test: "Edit test"
+      form_inline:
+        submit: "ok"
     gists:
       index:
         title: "All gists"
