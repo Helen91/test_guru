@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :questions, except: :index do
         resources :answers, except: :index
       end
+      patch :update_inline, on: :member
     end
   end
 end

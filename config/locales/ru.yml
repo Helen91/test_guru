@@ -60,6 +60,8 @@ ru:
         create_new_question: "Создать новый вопрос"
       edit:
         edit_test: "Редaктировать тест"
+      form_inline:
+        submit: "ok"
     questions:
       show:
         create_new_answer: "Создать новый ответ"
@@ -68,12 +70,12 @@ ru:
         new_answer: "Новый ответ"
       edit:
         edit_answer: "Pедактировать ответ"
+
     gists:
       index:
         title: "Все gists"
         question: "Вопросы"
         user: "Пользователь"
-
 
     tests_mailer:
       completed_test:
