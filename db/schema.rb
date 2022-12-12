@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2022_11_15_112902) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.boolean "correct", default: false, null: false
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -29,8 +32,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_112902) do
 
   create_table "gists", force: :cascade do |t|
     t.string "url"
-    t.integer "question_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 2022_11_15_112902) do
 
   create_table "questions", force: :cascade do |t|
     t.string "body", null: false
-    t.integer "test_id", null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
@@ -48,10 +51,10 @@ ActiveRecord::Schema.define(version: 2022_11_15_112902) do
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 1
-    t.integer "category_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
     t.index ["user_id"], name: "index_tests_on_user_id"
@@ -59,11 +62,11 @@ ActiveRecord::Schema.define(version: 2022_11_15_112902) do
 
   create_table "user_tests", force: :cascade do |t|
     t.boolean "pass", default: false, null: false
-    t.integer "test_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "test_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "question_id"
+    t.bigint "question_id"
     t.integer "correct_questions", default: 0
     t.index ["question_id"], name: "index_user_tests_on_question_id"
     t.index ["test_id"], name: "index_user_tests_on_test_id"
@@ -71,8 +74,8 @@ ActiveRecord::Schema.define(version: 2022_11_15_112902) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: ""

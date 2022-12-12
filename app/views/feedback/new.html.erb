@@ -1,0 +1,8 @@
+<%= form_with url: feedback_path do |form| %>
+  <div class="mb-3">
+    <%= form.text_area :message %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit t('submit'), class: 'btn btn-primary' %>
+  </div>
+<% end %>

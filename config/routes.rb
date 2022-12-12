@@ -26,4 +26,7 @@ Rails.application.routes.draw do
       patch :update_inline, on: :member
     end
   end
+
+  get 'feedback', to: "feedback#new"
+  post 'feedback', to: "feedback#create"
 end

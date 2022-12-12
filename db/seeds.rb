@@ -6,9 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create(age: 10, first_name: 'Helo', last_name: 'word')
-category = Category.create(title: "Ruby")
-test = Test.create(title: "Ruby", level: 1, category_id: category.id)
-user_test = UserTest.create(user_id: user.id, test_id: test.id)
-question = Question.create(test_id: test.id, body: "how are you?")
-answers = Answer.create(question_id: question.id, body: "fine", correct: true)
+admin = Admin.create!(first_name: "Admin", last_name: "Simple", email: "admin@gmail.com", password: "123456")
+category = Category.create!(title: "Numbers")
+
+test = Test.create!(title: "Count", level: 1, category_id: category.id)
+question = test.questions.create(body: "1")
+question.answers.create(
+  [{body: "1", correct: true}, {body: "2", correct: false}, {body: "3", correct: false}]
+)
