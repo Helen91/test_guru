@@ -41,6 +41,7 @@ en:
   back: "Back"
   questions: "Questions"
   answer: "Answer"
+  submit: "Send"
 
   helpers:
     submit:
